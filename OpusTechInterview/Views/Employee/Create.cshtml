@@ -1,0 +1,90 @@
+﻿@model OpusTechInterview.Models.EmployeeVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div style="margin: 0 auto;padding-top: 30px; position: relative;">
+    <div class="card p-lg-3 shadow-lg p-3 mb-5 rounded " style="margin-left: auto; margin-right: auto; width: 40%; background-color: #FEFEFE; color: #015B42 ">
+        <h3 class="text-center">Create Category</h3><hr />
+        <div id="placeholder"></div>
+        <form method="post" asp-action="Create" asp-controller="Employee" enctype="multipart/form-data">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger">
+
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="EmployeeCode"></label>
+                <div>
+                    <input type="text" asp-for="EmployeeCode" class="form-control" />
+                    <span asp-validation-for="EmployeeCode" class="text-danger" />
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Name"></label>
+                <div>
+                    <input type="text" asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger" />
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Phone"></label>
+                <div>
+                    <input type="text" asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger" />
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Email"></label>
+                <div>
+                    <input type="text" asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger" />
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="DateOfBirth"></label>
+                <div>
+                    <input type="text" asp-for="DateOfBirth" class="form-control" />
+                    <span asp-validation-for="DateOfBirth" class="text-danger" />
+                </div>
+            </div>
+
+
+
+            <div class="form-group mb-3">
+                <label asp-for="Photo"></label>
+                <div>
+                    <input type="file" asp-for="Photo" class="form-control" />
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-success">Save</button>
+                <button type="reset" class="btn btn-success">Reset</button>
+                <a asp-action="Index" asp-controller="Employee" class="btn btn-success">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section styles {
+
+    <link href="~/libs/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css" rel="stylesheet" />
+}
+
+@section scripts {
+    <script src="~/libs/jquery/jquery.js"></script>
+    <script src="~/libs/validate/jquery.validate.js"></script>
+    <script src="~/libs/validate/jquery.validate.unobtrusive.js"></script>
+    <script src="~/libs/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script>
+        $("#DateOfBirth").datepicker({
+            format: 'yyyy-mm-dd'
+        });
+    </script>
+}
+
